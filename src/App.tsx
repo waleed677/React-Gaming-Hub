@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Button, Grid, GridItem, Show } from '@chakra-ui/react'
 import Navbar from './components/Navbar'
+import GameGrid from './components/GameGrid'
 
 function App() {
 
@@ -17,9 +18,9 @@ function App() {
             <Navbar/>
           </GridItem>
           <Show above='lg'>
-          <GridItem  bg= 'red' area='aside'>Aside</GridItem>
+          <GridItem area='aside'>Aside</GridItem>
           </Show>
-          <GridItem  bg= 'purple' area='main'>Main</GridItem>
+          <GridItem area='main'><GameGrid/></GridItem>
         </Grid>
     </>
   )
