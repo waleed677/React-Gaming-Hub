@@ -1,6 +1,7 @@
 
-import { Text } from '@chakra-ui/react'
+import { SimpleGrid, Text } from '@chakra-ui/react'
 import useFetchGames from '../hooks/useFetchGames'
+import GameCard from './GameCard'
 
 
 
@@ -9,17 +10,18 @@ import useFetchGames from '../hooks/useFetchGames'
 const GameGrid = () => {
 
     const { games, errors } = useFetchGames()
-    console.log(errors)
 
   return (
     <>
     
     {errors && <Text>404 not found</Text>}
-    <ul>
+    <SimpleGrid  columns={{
+      sm:2, md:2, lg:3, xl:4
+    }} spacing={10}>
         {games.map( game => (
-            <li key={game.id}>{game.name}</li>
+            <GameCard game = {game}/>
         ))}
-    </ul>
+    </SimpleGrid>
     </>
   )
 }
