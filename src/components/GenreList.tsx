@@ -1,5 +1,4 @@
 import { Button, HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
-import React from "react";
 import useFetchGenre, { Genre } from "../hooks/useFetchGenre";
 import GetCroppedImage from "../utilities/GetCroppedImage";
 
