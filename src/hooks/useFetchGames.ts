@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import apiClient from "../services/apiClient";
 import { CanceledError } from "axios";
 import useFetchData from "./useFetchData";
+import { Genre } from "./useFetchGenre";
 
 
 
@@ -19,6 +20,7 @@ export interface Games {
 }
 
 
-const useFetchGames = () => useFetchData<Games>('/games');
+
+const useFetchGames = (selectedGenre : Genre | null ) => useFetchData<Games>('/games', {params : {genres: selectedGenre?.id}}, [selectedGenre?.id]);
 
 export default useFetchGames;

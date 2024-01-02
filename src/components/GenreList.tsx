@@ -1,9 +1,15 @@
-import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
+import { Button, HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 import React from "react";
-import useFetchGenre from "../hooks/useFetchGenre";
+import useFetchGenre, { Genre } from "../hooks/useFetchGenre";
 import GetCroppedImage from "../utilities/GetCroppedImage";
 
-const GenreList = () => {
+
+interface Props {
+    onSelectedGenre : (genre: Genre ) => void
+    selectedGenre? : Genre | null
+}
+
+const GenreList = ({ selectedGenre , onSelectedGenre} : Props) => {
   const { data, errors, isLoading} = useFetchGenre();
 
     if(errors) return;
@@ -20,7 +26,7 @@ const GenreList = () => {
               boxSize="32px"
               borderRadius="8px"
             />
-            <Text fontSize="18px">{gen.name}</Text>
+            <Button fontWeight={selectedGenre?.id === gen.id ? 'bold' : 'normal'}  onClick={() => onSelectedGenre(gen)} fontSize="18px" variant='link'>{gen.name}</Button>
           </HStack>
         </ListItem>
       ))}
