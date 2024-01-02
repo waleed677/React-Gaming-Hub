@@ -4,7 +4,7 @@ import useFetchGenre from "../hooks/useFetchGenre";
 import GetCroppedImage from "../utilities/GetCroppedImage";
 
 const GenreList = () => {
-  const { genre, errors, isLoading } = useFetchGenre();
+  const { data, errors, isLoading} = useFetchGenre();
 
     if(errors) return;
 
@@ -12,7 +12,7 @@ const GenreList = () => {
 
   return (
     <List>
-      {genre.map((gen) => (
+      {data.map((gen) => (
         <ListItem key={gen.id} paddingY="5px">
           <HStack>
             <Image
