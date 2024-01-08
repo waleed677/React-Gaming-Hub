@@ -2,24 +2,26 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Button, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useFetchGenre";
 import PlatformMenu from "./components/PlatformMenu";
 import { Platform } from "./hooks/useFetchGames";
+import SortSelector from "./components/SortSelector";
 
 
 export interface GameQuery {
     genre : Genre,
-    platform : Platform
+    platform : Platform,
+    ordering : string
 }
 
 function App() {
 
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
- 
+  
 
   return (
     <>
@@ -42,7 +44,10 @@ function App() {
           </GridItem>
         </Show>
         <GridItem marginTop={10} area="main">
+          <HStack marginBottom={3}>
           <PlatformMenu selectedPlatform = {gameQuery.platform} onSelectPlatform={(platform) => setGameQuery( {...gameQuery , platform}) } />
+          <SortSelector selectedSortOrder={gameQuery.ordering} onSelectSorting={(ordering) => setGameQuery({...gameQuery , ordering})}/>
+          </HStack>
           <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
