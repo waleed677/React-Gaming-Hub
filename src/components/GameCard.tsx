@@ -1,6 +1,5 @@
-import React from 'react'
 import { Games } from '../hooks/useFetchGames'
-import { Card, CardBody, Heading, Image, Text } from '@chakra-ui/react'
+import { Card, CardBody, Heading, Image } from '@chakra-ui/react'
 import GetCroppedImage from '../utilities/GetCroppedImage'
 import PlatformIconsList from './PlatformIconsList'
 

@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from "react";
-import apiClient from "../services/apiClient";
-import { CanceledError } from "axios";
 import useFetchData from "./useFetchData";
-import { Genre } from "./useFetchGenre";
 import { GameQuery } from "../App";
 
 
