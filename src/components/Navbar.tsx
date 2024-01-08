@@ -1,16 +1,22 @@
 import { HStack, Image, Switch, Text, useColorMode } from '@chakra-ui/react'
 import React from 'react'
 import logo from '../assets/logo.webp'
+import SearchInput from './SearchInput';
 
-const Navbar = () => {
+interface Props {
+  searchQuery : (searchText : string) => void
+}
+
+const Navbar = ({searchQuery} : Props) => {
 
     const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
-    <HStack justifyContent={'space-between'} padding='10px'>
+    <HStack  padding='10px'>
         <Image src={logo} boxSize='80px'/>
-        <Switch isChecked = { colorMode === 'dark'} colorScheme='green' onChange={toggleColorMode}>{colorMode}</Switch>
+        <SearchInput onSearch={(query) =>searchQuery(query)}/>
+        <Switch isChecked = { colorMode === 'dark'} colorScheme='green' onChange={toggleColorMode} whiteSpace={'nowrap'} >{colorMode}</Switch>
     </HStack>
     </>
   )

@@ -27,7 +27,8 @@ const useFetchGames = (gameQuery : GameQuery) => useFetchData<Games>('/games',
   params : {
     genres: gameQuery.genre?.id,
     platform : gameQuery.platform?.id,
-    ordering: gameQuery.ordering
+    ordering: gameQuery.ordering,
+    search: gameQuery.search
   
   } 
 }, 
