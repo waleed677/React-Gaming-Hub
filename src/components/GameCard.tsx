@@ -19,8 +19,8 @@ const GameCard = ({game} : Props) => {
     <Card >
       <Image src={GetCroppedImage(game.background_image)}/>
       <CardBody>
-        <Heading size='md' marginBottom={1}>{game.name}</Heading>
         <PlatformIconsList  platforms = {game.parent_platforms.map(p => p.platform)}/>
+        <Heading fontSize='2xl' marginTop={1}>{game.name}</Heading>
       </CardBody>
     </Card>
   )

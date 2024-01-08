@@ -18,7 +18,7 @@ const SearchInput = ({onSearch} : Props) => {
     <form onSubmit={handleSubmit}>
     <InputGroup>
         <InputLeftElement><BsSearch/></InputLeftElement>
-        <Input ref={searchQuery} placeholder='Search here...' type='text' borderRadius={10} variant="filled"/>
+        <Input color='white' ref={searchQuery} placeholder='Search here...' type='text' borderRadius={20} variant="filled"/>
     </InputGroup>
     </form>
   )
